@@ -10,8 +10,6 @@ int __stdcall test(int a, int b)
 
 int main(int argc, char *argv[])
 {
-    HMODULE hModule = GetModuleHandleA("kernel32.dll");
-
     HANDLE hThread = CreateThread2(NULL, 0, (LPTHREAD_START_ROUTINE)test, 0, NULL, 2, 1, 2);
     WaitForSingleObject(hThread, INFINITE);
     printf("[*] Terminated!\n");
