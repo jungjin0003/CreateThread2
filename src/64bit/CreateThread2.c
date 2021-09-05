@@ -4,38 +4,6 @@ HANDLE CustomWINAPI CreateThread2(LPSECURITY_ATTRIBUTES lpThreadAttributes, SIZE
 
 VOID Helper(PDynamic_Parameter DynamicParameter)
 {
-    // __asm__ __volatile__ (
-    //     "pop rbp\n\t"
-    //     "mov rax, rcx\n\t"
-    //     "mov eax, dword ptr ds:[rax+0x8]\n\t"
-    //     "cmp eax, 0x4\n\t"
-    //     "jbe FuncCall\n\t"
-    //     "mov r12, qword ptr ds:[rsp]\n\t"
-    //     "add rsp, 0x10\n\t"
-    //     "mov rdx, rax\n\t"
-    //     "sub eax, 0x3\n\t"
-    //     "mov rbx, 0x8\n\t"
-    //     "mul rbx\n\t"
-    //     "sub rsp, rax\n\t"
-    //     "xor rax, rax\n\t"
-    //     "mov qword ptr ds:[rsp], r12\n\t"
-    //     "mov eax, dword ptr ds:[rcx+0x8]\n\t"
-    //     "dec eax\n\t"
-    //     "mov rsi, 0x3\n\t"
-    //     "SetArg:\n\t"
-    //     "inc rsi\n\r"
-    //     "mov rbx, qword ptr ds:[rcx+0x10+rsi*0x8]\n\t"
-    //     "mov qword ptr ds:[rsp+rsi*0x8+0x8], rbx\n\t"
-    //     "cmp esi, eax\n\t"
-    //     "jne SetArg\n\t"
-    //     "FuncCall:\n\t"
-    //     "mov rax, rcx\n\t"
-    //     "mov rcx, qword ptr ds:[rax+0x10]\n\t"
-    //     "mov rdx, qword ptr ds:[rax+0x18]\n\t"
-    //     "mov r8, qword ptr ds:[rax+0x20]\n\t"
-    //     "mov r9, qword ptr ds:[rax+0x28]\n\t"
-    //     "jmp qword ptr ds:[rax]\n\t"
-    // );
     __asm__ __volatile__ (
         "mov r15, %[free]\n\t"
         "pop rbp\n\t"
